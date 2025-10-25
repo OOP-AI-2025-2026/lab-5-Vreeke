@@ -1,5 +1,3 @@
-package ua.opnu;
-
 public class Main {
     public static void main(String[] args) {
         Person s1 = new Student("Шевченко", "Тарас", 19, "ІП-21", "STU-1001");
