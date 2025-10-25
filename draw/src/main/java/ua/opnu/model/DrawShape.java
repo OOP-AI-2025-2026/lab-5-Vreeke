@@ -14,6 +14,8 @@ public class DrawShape {
             shape = new Rectangle();
         } else if (shapeType == DrawShape.SHAPE_ROUNDED_RECT) {
             shape = new RoundedRectangle();
+        } else if (shapeType == DrawShape.SHAPE_ELLIPSE) {
+            shape = new Ellipse();
         }
         return shape;
     }
@@ -21,6 +23,7 @@ public class DrawShape {
     // Константи для типів фігур
     public static final int SHAPE_RECTANGLE = 0;
     public static final int SHAPE_ROUNDED_RECT = 1;
+    public static final int SHAPE_ELLIPSE = 2; // додано
 
     // Початкова та кінцева точки
     private Point startPoint;

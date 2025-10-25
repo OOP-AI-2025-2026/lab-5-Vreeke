@@ -38,14 +38,19 @@ public class MainFrame extends JFrame implements ActionListener {
 
     private GameShape generateShape() {
 
-        // TODO: написати логіку методу
-
         // Метод повертає об'єкт ігрової фігури (камінь, ножиці чи папір)
         // випадковим чином
 
         int random = new Random().nextInt(3);
 
-        return new GameShape(); // TODO: змініть на об'єкт потрібної фігури
+        switch (random) {
+            case 0:
+                return new Rock();
+            case 1:
+                return new Paper();
+            default:
+                return new Scissors();
+        }
     }
 
     private int checkWinner(GameShape player, GameShape computer) {
@@ -55,9 +60,27 @@ public class MainFrame extends JFrame implements ActionListener {
         // Метод повертає 0 якщо нічия (обидві фігури однакові)
         // Метод повертає -1 якщо переміг комп'ютер
 
-        // TODO: написати логіку методу
+        // Перевірка для класів за допомогою instanceof
+        // Спочатку перевіряємо нічію (якщо один і той самий тип)
+        if ((player instanceof Rock && computer instanceof Rock) ||
+                (player instanceof Paper && computer instanceof Paper) ||
+                (player instanceof Scissors && computer instanceof Scissors)) {
+            return 0;
+        }
 
-        return 0;
+        // Випадки, коли виграє гравець
+        if (player instanceof Rock && computer instanceof Scissors) {
+            return 1; // камінь б'є ножиці
+        }
+        if (player instanceof Scissors && computer instanceof Paper) {
+            return 1; // ножиці б'ють папір
+        }
+        if (player instanceof Paper && computer instanceof Rock) {
+            return 1; // папір б'є камінь
+        }
+
+        // В усіх інших випадках виграє комп'ютер
+        return -1;
     }
 
     @Override
@@ -70,12 +93,15 @@ public class MainFrame extends JFrame implements ActionListener {
         switch (e.getActionCommand()) {
             case "rock":
                 // присвоїти playerShape об'єкт відповідного класу
+                playerShape = new Rock();
                 break;
             case "paper":
                 // присвоїти playerShape об'єкт відповідного класу
+                playerShape = new Paper();
                 break;
             case "scissors":
                 // присвоїти playerShape об'єкт відповідного класу
+                playerShape = new Scissors();
                 break;
         }
 
