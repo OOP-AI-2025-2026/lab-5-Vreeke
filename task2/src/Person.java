@@ -1,5 +1,3 @@
-package ua.opnu;
-
 public class Person {
     private String surname;
     private String name;

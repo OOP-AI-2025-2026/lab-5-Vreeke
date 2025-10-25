@@ -1,5 +1,3 @@
-package ua.opnu;
-
 public class Student extends Person {
     private String group;
     private String studentId;

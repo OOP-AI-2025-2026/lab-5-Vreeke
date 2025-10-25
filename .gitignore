@@ -17,6 +17,7 @@ target/
 *.ipr
 .idea/
 /**/.idea/*
+*.class
 
 ### Eclipse ###
 .apt_generated

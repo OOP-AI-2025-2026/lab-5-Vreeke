@@ -1,5 +1,3 @@
-package ua.opnu;
-
 public class Lecturer extends Person {
     private String department;
     private double salary;
